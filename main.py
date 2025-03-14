@@ -1,4 +1,12 @@
-from typing import Type
+from types_info import Type
+
+# Use type hints on the boundaries of your code, such as function params/returns. Object properties
+# (if not inferred through constructor), when you inherit a class.
+# Default to not annotating variables, unless the type checker is having a hard time inferring them.
+# Examples would be:
+# If you assign a variable an empty list, annotate what type the list can contain in the future.
+# If you assign a variable None, annotate it with Optional[type it can be]
+# When you have complex containers annotate it so the type checker isnt inferring Any.
 
 # You should add a docstring to all functions/methods/classes
 class Owner:
@@ -68,3 +76,5 @@ print(dog_2.name)
 dog.bark()
 print(dog.owner.name)
 print(dog_2.owner.name)
+
+# We can use the mypy package to do a static type check based on our type hints.
