@@ -1,4 +1,5 @@
-from typing import Optional
+from typing import Optional, Sequence
+
 # If we want to give a type of a nested list we would do the following:
 x: list[list[int]] = [[17]]
 
@@ -28,6 +29,7 @@ Vector = list[int]
 my_list: Vector = [6, 6]
 
 
+# If you want to accept any sequence (list, tuple, dict, etc.) use the Sequence type
 # Whenever we use optional params they should be typed as optional
-def my_function(output:Optional[bool]=False) -> None:
+def my_function(seq: Sequence, output:Optional[bool]=False) -> None:
      pass
