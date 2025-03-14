@@ -1,32 +1,50 @@
-class Dog:
-    # __init__ is a special method called a constructor. It takes in the arguments
-    # passed to the class when its invoked, and is the method that outputs the
-    # instance of the class
-    def __init__(self, name, breed, owner):
-        # We can attach attributes to the instance using self, which is our
-        # reference to the instance.
-        # Attributes attached to instance through self are called instance attributes
-        self.name = name
-        self.breed = breed
-        # We can pass in an instance of another class to be used as an instance attribute
-        # tieing the data together
-        self.owner = owner
+from typing import Type
 
-    # Any methods within the class are automatically attached to the instance.
-    def bark(self):
-        print("Woof woof!")
-
-
+# You should add a docstring to all functions/methods/classes
 class Owner:
-    def __init__(self, name, address, contact_number):
+    """Object representation of a dog's owner"""
+
+    # You should type hint all method/function params
+    def __init__(self, name:str, address:str, contact_number:str):
+        """Constructor for the class instance object"""
+
         self.name = name
         self.address = address
         self.contact_number = contact_number
 
 
+class Dog:
+    """Object representation of a dog"""
+    # __init__ is a special method called a constructor. It takes in
+    # the arguments
+    # passed to the class when its invoked, and is the method that
+    # outputs the instance of the class
+    def __init__(self, name:str, breed:str, owner:Type[Owner]):
+        """Constructor for the class instance object"""
 
-owner_1 = Owner("Enki", "316 Dalewood Ave.", "540-521-0849")
-owner_2 = Owner("Bat", "316 Dalewood Ave.", "540-588-0104")
+        # We can attach attributes to the instance using self, which is
+        # our reference to the instance.
+        # Attributes attached to instance through self are called
+        # instance attributes
+        self.name = name
+        self.breed = breed
+        # We can pass in an instance of another class to be used as an
+        # instance attribute tying the data together
+        self.owner = owner
+
+    # Any methods within the class are automatically attached to the
+    # instance.
+    def bark(self) -> None:
+        """Barking behavior of the dog"""
+
+        print("Woof woof!")
+
+
+owner_1 = Owner("Enki", "316 Dalewood Ave.",
+                "540-521-0849")
+
+owner_2 = Owner("Bat", "316 Dalewood Ave.",
+                "540-588-0104")
 
 # Whenever we invoke the class it evaluates to a unique instance of
 # the class. An instance is an object that follows the blueprint laid
