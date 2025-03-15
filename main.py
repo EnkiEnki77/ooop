@@ -1,4 +1,4 @@
-from types_info import Type
+from typing import Type
 
 # Use type hints on the boundaries of your code, such as function params/returns. Object properties
 # (if not inferred through constructor), when you inherit a class.
@@ -27,7 +27,9 @@ class Dog:
     # the arguments
     # passed to the class when its invoked, and is the method that
     # outputs the instance of the class
-    def __init__(self, name:str, breed:str, owner:Type[Owner]):
+    # When passing an instance of a class as an argument, it's type is that class.
+    # When passing the class in itself you wrap it in type[]
+    def __init__(self, name:str, breed:str, owner:Owner):
         """Constructor for the class instance object"""
 
         # We can attach attributes to the instance using self, which is
@@ -42,16 +44,16 @@ class Dog:
 
     # Any methods within the class are automatically attached to the
     # instance.
-    def bark(self) -> None:
+    def bark(self):
         """Barking behavior of the dog"""
 
         print("Woof woof!")
 
 
-owner_1 = Owner("Enki", "316 Dalewood Ave.",
+owner_1:Owner = Owner("Enki", "316 Dalewood Ave.",
                 "540-521-0849")
 
-owner_2 = Owner("Bat", "316 Dalewood Ave.",
+owner_2:Owner = Owner("Bat", "316 Dalewood Ave.",
                 "540-588-0104")
 
 # Whenever we invoke the class it evaluates to a unique instance of
@@ -71,10 +73,12 @@ dog = Dog("Zach", "Dalmation", owner_1)
 dog_2 = Dog("Bruce", "Husky", owner_2)
 
 # Instance attributes and methods are accessed through dot notation
-print(dog.name)
-print(dog_2.name)
-dog.bark()
-print(dog.owner.name)
-print(dog_2.owner.name)
+# print(dog.name)
+# print(dog_2.name)
+# dog.bark()
+# print(dog.owner.name)
+# print(dog_2.owner.name)
 
 # We can use the mypy package to do a static type check based on our type hints.
+
+print(type(owner_1))

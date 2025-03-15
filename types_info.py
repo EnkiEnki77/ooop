@@ -31,5 +31,5 @@ my_list: Vector = [6, 6]
 
 # If you want to accept any sequence (list, tuple, dict, etc.) use the Sequence type
 # Whenever we use optional params they should be typed as optional
-def my_function(seq: Sequence, output:Optional[bool]=False) -> None:
-     pass
+def my_function(seq: Sequence[str], output:Optional[bool]=False) -> None:
+     return seq
